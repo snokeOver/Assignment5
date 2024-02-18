@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snoke Ticket</title>
+    <!-- Custom style -->
+    <link rel="stylesheet" href="./styles/style.css" />
+    <!-- Link for DaisyUI and Tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.6.0/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind styles -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-bg": "#1DD100",
+              "heading-color": "#030712",
+              "message-color": "rgba(3, 7, 18, 0.60)",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Custom CSS -->
+    <style>
+      .card-compact .card-body {
+        padding: 0px;
+      }
+      .btn {
+        height: auto;
+        min-height: auto;
+      }
+      .seat {
+        border: none;
+        font-size: 20px;
+        font-family: "Inter", sans-serif;
+        font-weight: 300;
+        padding: 12px 22px;
+      }
+    </style>
+  </head>
+  <body class="">
+    <header class="my-10 container mx-auto font-raleway">
+      <!-- for xl, 2xl -->
+      <div class="navbar hidden xl:flex">
+        <!-- start -->
+        <div class="navbar-start">
+          <a class="btn btn-ghost">
+            <h1 class="text-4xl font-extrabold text-[#424247]">Snoke-Ticket</h1>
+          </a>
+        </div>
+
+        <!-- center -->
+        <div class="navbar-center">
+          <ul
+            class="menu menu-horizontal px-1 text-[#424247] hidden xl:flex text-xl"
+          >
+            <li><a>Home</a></li>
+            <li><a>About</a></li>
+            <li><a>Destination</a></li>
+            <li><a>Search</a></li>
+          </ul>
+        </div>
+        <!-- end -->
+        <div class="navbar-end mr-5 relative hidden lg:flex">
+          <button
+            class="btn text-primary-bg bg-[#1cd10025] md:text-xl font-bold px-5 py-4 md:px-6 md:py-4 h-auto border border-green-200 rounded-xl"
+          >
+            Bus <img class="ml-1" src="./images/bus-icon.png" alt="" />
+          </button>
+        </div>
+      </div>
+      <!-- for lg, sm, md -->
+      <div class="navbar xl:hidden">
+        <!-- start -->
+        <div class="navbar-start">
+          <div class="dropdown relative">
+            <div tabindex="0" role="button" class="btn btn-ghost xl:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 md:h-8 md:w-8 text-[heading-color]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52 text-xl bg-gray-200 text-black"
+            >
+              <li><a>Home</a></li>
+              <li><a>About</a></li>
+              <li><a>Destination</a></li>
+              <li><a>Search</a></li>
+            </ul>
+          </div>
+          <a class="btn btn-ghost md:hidden">
+            <h1 class="text-2xl md:text-4xl font-extrabold text-[#424247]">
+              Snoke-Ticket
+            </h1>
+          </a>
+        </div>
+        <!-- middle -->
+        <div class="navbar-center hidden md:flex">
+          <a class="btn btn-ghost">
+            <h1 class="text-4xl font-extrabold text-[#424247]">Snoke-Ticket</h1>
+          </a>
+        </div>
+        <!-- end  -->
+        <div class="navbar-end">
+          <button
+            class="btn text-primary-bg bg-[#1cd10025] text-xl font-bold px-3 py-2 md:px-6 md:py-4 h-auto border border-green-200 rounded-xl"
+          >
+            Bus <img class="ml-1" src="./images/bus-icon.png" alt="" />
+          </button>
+        </div>
+      </div>
+      <!-- Banner section -->
+
+      <div class="relative my-5 lg:my-10 px-5 xl:px-0">
+        <div class="w-full">
+          <!-- banner Image-->
+          <div
+            id="banner_image"
+            class="relative bg-[url(./images/banner.png)] bg-cover h-[157px] md:h-[342px] lg:h-[462px] xl:h-[600px] 2xl:h-[720px] rounded-lg flex flex-col items-center text-center justify-center gap-1 md:gap-3 lg:gap-10"
+          >
+            <h1
+              class="text-base md:text-4xl lg:text-6xl font-extrabold text-white"
+            >
+              End-to-End Travel with
+            </h1>
+            <h1
+              class="text-base md:text-4xl lg:text-6xl font-extrabold text-primary-bg"
+            >
+              Snoke Paribahan
+            </h1>
+
+            <p
+              class="text-white font-inter hidden md:inline md:text-base lg:text-lg md:w-3/4 lg:1/2"
+            >
+              You can buy ticket your tickets without any trouble from your home
+              and convenient places at any time.
+            </p>
+            <p class="text-white font-inter text-xs md:hidden lg:w-1/2">
+              You can buy ticket your tickets at any time at any place.
+            </p>
+            <button
+              class="btn text-heading-color bg-primary-bg text-xl font-bold px-3 py-0 md:px-6 md:py-3 lg:px-8 lg:py-4 h-auto border-none rounded-xl"
+            >
+              Buy Ticket
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="lg:absolute right-36 -bottom-24 w-full lg:w-[80%] mx-auto px-1 py-3 lg:p-8 grid grid-cols-3 gap-2 md:gap-6"
+        >
+          <div
+            class="card card-compact flex-col md:flex-row shadow-md shadow-primary-bg p-1 md:p-4 lg:p-8 bg-gradient-to-r from-[#F4F4F4] to-[#f4f4f4]"
+          >
+            <figure>
+              <img src="./images/people.png" alt="Shoes" />
+            </figure>
+            <div
+              class="card-body items-center font-inter text-center md:text-left"
+            >
+              <h2 class="text-xl md:text-4xl font-bold">500K+</h2>
+              <p>Registered users</p>
+            </div>
+          </div>
+          <div
+            class="card card-compact flex-col md:flex-row shadow-md shadow-primary-bg p-1 md:p-4 lg:p-8 bg-gradient-to-r from-[#F4F4F4] to-[#f4f4f4]"
+          >
+            <figure>
+              <img src="./images/ticket-cupon.png" alt="Shoes" />
+            </figure>
+            <div
+              class="card-body items-center font-inter text-center md:text-left"
+            >
+              <h2 class="text-xl md:text-4xl font-bold">1.7 lacks</h2>
+              <p class="">Tickets sold</p>
+            </div>
+          </div>
+          <div
+            class="card card-compact flex-col md:flex-row shadow-md shadow-primary-bg p-1 md:p-4 lg:p-8 bg-gradient-to-r from-[#F4F4F4] to-[#f4f4f4]"
+          >
+            <figure>
+              <img src="./images/stoppage.png" alt="Shoes" />
+            </figure>
+            <div
+              class="card-body items-center font-inter text-center md:text-left"
+            >
+              <h2 class="text-xl md:text-4xl font-bold">80K+</h2>
+              <p>Rental partners</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="md:my-10 lg:my-36 container mx-auto px-5 xl:px-0">
+      <!-- Offer section -->
+      <section class="my-10 font-raleway flex justify-center flex-col">
+        <div class="text-center md:py-6">
+          <h1
+            class="text-2xl md:text-4xl font-extrabold text-heading-color mb-5"
+          >
+            Best offers for you
+          </h1>
+        </div>
+        <div
+          class="text-center md:py-6 grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-8"
+        >
+          <!-- first coupon -->
+          <div class="card flex-row justify-between p-4 lg:p-10 bg-[#FFBF0F]">
+            <div
+              class="flex flex-col justify-center md:text-left font-inter gap-1 lg:gap-4"
+            >
+              <h2 class="text-2xl lg:text-5xl font-extrabold">15% OFF</h2>
+              <h4 class="text-sm lg:text-xl font-semibold">
+                On your next purchase
+              </h4>
+              <p class="text-xs lg:text-lg font-medium text-[#03071262]">
+                Use by January 2025
+              </p>
+            </div>
+            <div
+              class="flex flex-col justify-center items-center md:text-left gap-1 lg:gap-3"
+            >
+              <h2 class="text-xl lg:text-3xl font-extrabold">NEW15</h2>
+
+              <p class="text-xs lg:text-xl font-medium text-[#03071262]">
+                Coupon Code
+              </p>
+            </div>
+            <figure class="absolute left-20 -inset-0 h-full">
+              <img src="./images/cupon-devider.png" alt="Shoes" />
+            </figure>
+          </div>
+          <!-- Couple coupon -->
+          <div class="card flex-row justify-between p-4 lg:p-10 bg-[#F78C9C]">
+            <div
+              class="flex flex-col justify-center md:text-left font-inter gap-1 lg:gap-4"
+            >
+              <h2 class="text-2xl lg:text-5xl font-extrabold">20% OFF</h2>
+              <h4 class="text-sm lg:text-xl font-semibold">
+                On your next purchase
+              </h4>
+              <p class="text-xs lg:text-lg font-medium text-[#03071262]">
+                Use by January 2025
+              </p>
+            </div>
+            <div
+              class="flex flex-col justify-center items-center md:text-left gap-1 lg:gap-3"
+            >
+              <h2 class="text-xl lg:text-3xl font-extrabold">Couple 20</h2>
+
+              <p class="text-xs lg:text-xl font-medium text-[#03071262]">
+                Coupon Code
+              </p>
+            </div>
+            <figure class="absolute left-20 -inset-0 h-full">
+              <img src="./images/cupon-devider.png" alt="Shoes" />
+            </figure>
+          </div>
+        </div>
+        <div class="flex justify-center mt-6 lg:mt-14">
+          <button
+            class="btn text-primary-bg text-xl font-bold px-3 py-2 md:px-6 md:py-4 h-auto border border-green-200 rounded-xl"
+          >
+            See All Offers
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Paribahan section -->
+
+    <section class="my-10 font-raleway mx-auto">
+      <div class="border pb-28 rounded-3xl border-t-primary-bg bg-[#F7F8F8]">
+        <div class="container mx-auto">
+          <div class="text-center p-3 md:py-6">
+            <h1
+              class="text-2xl md:text-4xl font-extrabold text-heading-color mb-5"
+            >
+              Snoke Paribahan
+            </h1>
+            <p
+              class="text-message-color font-inter hidden md:inline-block md:text-base lg:text-lg md:w-3/4 lg:w-1/2"
+            >
+              You can buy ticket your tickets for safe travell without any
+              trouble from your home and convenient places at any time.
+            </p>
+            <p class="text-message-color font-inter md:hidden w-full">
+              Buy tickets tickets at any places & time.
+            </p>
+          </div>
+          <!-- Paribahan Info section -->
+          <section class="card w-full grid md:grid-cols-5 p-4 lg:p-8 bg-white">
+            <!-- left part -->
+            <div
+              class="md:col-span-4 flex flex-col justify-between md:text-left font-inter gap-1 lg:gap-4"
+            >
+              <div class="flex justify-between items-center">
+                <div class="flex gap-5 items-center">
+                  <img
+                    class="w-1/4 md:w-auto"
+                    src="./images/bus-logo.png"
+                    alt=""
+                  />
+                  <div>
+                    <h2 class="md:text-4xl font-extrabold mb-2">
+                      Snoke Paribahan
+                    </h2>
+                    <p class="text-xs lg:text-lg font-medium text-[#03071262]">
+                      Coach-009-WEB ! AC_Business
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <button
+                    class="btn text-primary-bg md:text-xl font-medium px-3 py-2 md:px-6 md:py-4 h-auto border border-green-200 rounded-xl"
+                  >
+                    <img src="./images/seat-green.png" alt="" />
+                    <span id="numberOfSeats" class="text-lg md:text-xl"
+                      >40</span
+                    >
+                    Seats left
+                  </button>
+                </div>
+              </div>
+              <div class="card w-full p-4 lg:p-10 bg-[#F7F8F8]">
+                <div class="flex justify-between text-lg font-semibold">
+                  <h4>Route</h4>
+                  <h4 class="font-raleway">Dhaka-Sylhet</h4>
+                </div>
+                <div
+                  class="flex justify-between text-lg font-semibold border-y border-dashed border-gray-300 my-4 py-4"
+                >
+                  <h4>Departure Time</h4>
+                  <h4 class="font-raleway">9:00 PM</h4>
+                </div>
+                <div class="grid grid-cols-3 gap-2 md:gap-10 mt-2">
+                  <h4
+                    class="flex text-xs text-center md:text-base font-medium bg-[#1616150a] p-3 rounded-xl justify-center"
+                  >
+                    Boarding Point - Laxmipur
+                  </h4>
+                  <h4
+                    class="flex text-xs text-center md:text-base bg-[#1616150a] p-3 rounded-xl justify-center"
+                  >
+                    Dropping Point - Bogura
+                  </h4>
+                  <h4
+                    class="flex text-xs text-center md:text-base bg-[#1616150a] p-3 rounded-xl justify-center"
+                  >
+                    Est. Time - 11 Hour
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <!-- Right part -->
+            <div
+              class="relative flex md:flex-col justify-center items-center md:text-left gap-1 lg:gap-3"
+            >
+              <figure class="">
+                <img src="./images/fare.png" alt="Shoes" />
+              </figure>
+              <div>
+                <h2 class="text-xl lg:text-3xl font-extrabold">550 Taka</h2>
+
+                <p
+                  class="text-xs lg:text-xl font-semibold text-[#030712b4] text-center"
+                >
+                  Per Seat
+                </p>
+              </div>
+            </div>
+            <figure class="absolute left-[60rem] -inset-0 h-full">
+              <img
+                class="hidden xl:inline-block"
+                src="./images/info-devider.png"
+                alt="Shoes"
+              />
+            </figure>
+          </section>
+          <!-- Available and Buy section -->
+          <section
+            class="card grid grid-cols-1 lg:grid-cols-5 lg:gap-8 w-full p-4 lg:p-10 bg-white my-5 md:my-10 font-raleway"
+          >
+            <!-- Left part to Select seat(s) -->
+            <div class="lg:col-span-3">
+              <div class="flex justify-between">
+                <h4 class="text-xl font-extrabold">Select Your Seat</h4>
+              </div>
+              <div
+                class="flex justify-between text-lg font-semibold border-y border-dashed border-gray-300 my-4 py-4"
+              >
+                <div class="flex gap-3">
+                  <img src="./images/seat-gray.png" alt="" />
+                  <h4>Available</h4>
+                </div>
+                <div class="flex gap-3">
+                  <img src="./images/seat-green.png" alt="" />
+                  <h4 class="text-primary-bg">Selected</h4>
+                </div>
+              </div>
+              <div class="flex justify-end text-lg font-semibold my-4 py-4">
+                <div class="px-5 lg:px-10 py-1 lg:py-3 bg-gray-200 rounded-xl">
+                  <img src="./images/wheel.svg" alt="" />
+                </div>
+              </div>
+              <!-- Seat Plan -->
+              <div
+                class="grid grid-cols-6 md:grid-cols-6 gap-8 text-xl text-gray-500 pr-5 md:pr-0"
+              >
+                <!-- Seat Left side -->
+                <div class="flex flex-col gap-6">
+                  <kbd id="A" class="kbd border-none bg-white lg:py-4">A</kbd>
+                  <kbd id="B" class="kbd border-none bg-white lg:py-4">B</kbd>
+                  <kbd id="C" class="kbd border-none bg-white lg:py-4">C</kbd>
+                  <kbd id="D" class="kbd border-none bg-white lg:py-4">D</kbd>
+                  <kbd id="E" class="kbd border-none bg-white lg:py-4">E</kbd>
+                  <kbd id="F" class="kbd border-none bg-white lg:py-4">F</kbd>
+                  <kbd id="G" class="kbd border-none bg-white lg:py-4">G</kbd>
+                  <kbd id="H" class="kbd border-none bg-white lg:py-4">H</kbd>
+                  <kbd id="I" class="kbd border-none bg-white lg:py-4">I</kbd>
+                  <kbd id="J" class="kbd border-none bg-white lg:py-4">J</kbd>
+                </div>
+                <div class="flex flex-col gap-6">
+                  <button id="A1" class="btn seat lg:py-5">A1</button>
+                  <button id="B1" class="btn seat lg:py-5">B1</button>
+                  <button id="C1" class="btn seat lg:py-5">C1</button>
+                  <button id="D1" class="btn seat lg:py-5">D1</button>
+                  <button id="E1" class="btn seat lg:py-5">E1</button>
+                  <button id="F1" class="btn seat lg:py-5">F1</button>
+                  <button id="G1" class="btn seat lg:py-5">G1</button>
+                  <button id="H1" class="btn seat lg:py-5">H1</button>
+                  <button id="I1" class="btn seat lg:py-5">I1</button>
+                  <button id="J1" class="btn seat lg:py-5">J1</button>
+                </div>
+                <div class="flex flex-col gap-6">
+                  <button id="A2" class="btn seat lg:py-5">A2</button>
+                  <button id="B2" class="btn seat lg:py-5">B2</button>
+                  <button id="C2" class="btn seat lg:py-5">C2</button>
+                  <button id="D2" class="btn seat lg:py-5">D2</button>
+                  <button id="E2" class="btn seat lg:py-5">E2</button>
+                  <button id="F2" class="btn seat lg:py-5">F2</button>
+                  <button id="G2" class="btn seat lg:py-5">G2</button>
+                  <button id="H2" class="btn seat lg:py-5">H2</button>
+                  <button id="I2" class="btn seat lg:py-5">I2</button>
+                  <button id="J2" class="btn seat lg:py-5">J2</button>
+                </div>
+                <!-- Seat Right side -->
+                <div class="flex flex-col gap-6"></div>
+                <div class="flex flex-col gap-6">
+                  <button id="A3" class="btn seat lg:py-5">A3</button>
+                  <button id="B3" class="btn seat lg:py-5">B3</button>
+                  <button id="C3" class="btn seat lg:py-5">C3</button>
+                  <button id="D3" class="btn seat lg:py-5">D3</button>
+                  <button id="E3" class="btn seat lg:py-5">E3</button>
+                  <button id="F3" class="btn seat lg:py-5">F3</button>
+                  <button id="G3" class="btn seat lg:py-5">G3</button>
+                  <button id="H3" class="btn seat lg:py-5">H3</button>
+                  <button id="I3" class="btn seat lg:py-5">I3</button>
+                  <button id="J3" class="btn seat lg:py-5">J3</button>
+                </div>
+                <div class="flex flex-col gap-6">
+                  <button id="A4" class="btn seat lg:py-5">A4</button>
+                  <button id="B4" class="btn seat lg:py-5">B4</button>
+                  <button id="C4" class="btn seat lg:py-5">C4</button>
+                  <button id="D4" class="btn seat lg:py-5">D4</button>
+                  <button id="E4" class="btn seat lg:py-5">E4</button>
+                  <button id="F4" class="btn seat lg:py-5">F4</button>
+                  <button id="G4" class="btn seat lg:py-5">G4</button>
+                  <button id="H4" class="btn seat lg:py-5">H4</button>
+                  <button id="I4" class="btn seat lg:py-5">I4</button>
+                  <button id="J4" class="btn seat lg:py-5">J4</button>
+                </div>
+              </div>
+            </div>
+            <!-- Right part to buy tickect -->
+            <div
+              class="mt-10 lg:mt-0 lg:col-span-2 lg:border-l-2 lg:border-dashed lg:pl-6"
+            >
+              <div
+                class="flex justify-between border-b border-dashed border-gray-300 pb-5"
+              >
+                <h4 class="text-xl font-extrabold">Buy Your Seat</h4>
+              </div>
+              <div class="bg-[#F7F8F8] my-4 px-4 py-8 rounded-2xl font-inter">
+                <div
+                  class="flex justify-between text-lg font-semibold border-b border-dashed border-gray-300 pb-3"
+                >
+                  <div class="flex items-center gap-1">
+                    <h4>Seat</h4>
+                    <h4
+                      id="selectedSeatCount"
+                      class="bg-primary-bg text-xl px-4 py-0 text-white rounded-3xl"
+                    >
+                      2
+                    </h4>
+                  </div>
+
+                  <h4 class="">Class</h4>
+
+                  <h4 class="">Price</h4>
+                </div>
+                <!-- Dynamic seat part -->
+                <div class="flex justify-between font-light text-lg py-3">
+                  <div class="flex items-center gap-1">
+                    <h4 id="selectedSeat">C2</h4>
+                  </div>
+                  <h4 id="seatClass" class="">Economy</h4>
+                  <h4 id="perSeatPrice" class="">550</h4>
+                </div>
+                <!-- Dynamic Price Part -->
+                <div
+                  class="flex justify-between text-lg font-semibold border-t-2 border-gray-300 p-3"
+                >
+                  <div class="flex items-center gap-1">
+                    <h4>Total Price</h4>
+                  </div>
+
+                  <h4>BDT <span id="totalPrice">550</span></h4>
+                </div>
+                <!-- Coupon Part -->
+                <label class="relative input flex items-center my-2 font-inter">
+                  <input
+                    type="text"
+                    class="grow rounded-xl"
+                    placeholder="Have any coupon?"
+                  />
+                  <button
+                    class="absolute btn right-2 xl:right-6 text-white bg-primary-bg text-lg font-medium py-1 h-auto border-none rounded-lg"
+                  >
+                    Apply
+                  </button>
+                </label>
+              </div>
+              <div>
+                <form class="font-inter">
+                  <label class="form-control w-full my-3">
+                    <div class="label text">
+                      <span class="label-text font-semibold text-lg"
+                        >Passenger Name*</span
+                      >
+                    </div>
+                    <input
+                      id="name"
+                      type="text"
+                      placeholder="Enter your name"
+                      class="input input-bordered w-full"
+                    />
+                  </label>
+                  <label class="form-control w-full my-3">
+                    <div class="label text">
+                      <span class="label-text font-semibold text-lg"
+                        >Phone Number*</span
+                      >
+                    </div>
+                    <input
+                      id="phoneNumber"
+                      type="number"
+                      placeholder="Enter your phone number"
+                      class="input input-bordered w-full"
+                    />
+                  </label>
+                  <label class="form-control w-full my-3">
+                    <div class="label text">
+                      <span class="label-text font-semibold text-lg"
+                        >Email ID</span
+                      >
+                    </div>
+                    <input
+                      id="email"
+                      type="email"
+                      placeholder="Enter your email id"
+                      class="input input-bordered w-full"
+                    />
+                  </label>
+                  <button
+                    class="btn w-full my-4 text-white bg-primary-bg text-xl font-bold py-3 h-auto border-none rounded-xl"
+                  >
+                    Next
+                  </button>
+                </form>
+                <div
+                  class="underline flex flex-col xl:flex-row items-center justify-center gap-6 mt-6"
+                >
+                  <a>Terms and Conditions</a>
+                  <a>Cancellation Policy</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <footer
+      class="snoke-footer bg-black text-base-content px-6 py-10 lg:py-20 xl:px-36 xl:py-24"
+    >
+      <!-- first part -->
+      <div
+        class="flex flex-col md:flex-row justify-between gap-4 border-b border-dashed pb-5 lg:pb-10"
+      >
+        <nav class="flex text-center md:text-left">
+          <div class="space-y-2">
+            <h1 class="text-3xl font-extrabold text-white">Snoke-Ticket</h1>
+            <p class="text-[#ffffffa1] w-full md:w-1/2 lg:w-2/3">
+              Snoke-Ticket is a digital platform to make your daily commuting
+              better.
+            </p>
+          </div>
+        </nav>
+        <nav class="flex flex-col gap-3 text-white text-xl">
+          <div class="space-y-2 text-center md:text-left">
+            <p class="text-[#ffffffa1]">Download our app</p>
+          </div>
+          <button
+            class="btn bg-black text-white flex gap-2 justify-center items-center border border-white rounded-xl px-3 w-1/2 md:w-auto mx-auto"
+          >
+            <img src="./images/playstore.png" alt="" />
+            <div>
+              <p class="text-sm">GET IT ON</p>
+              <h2>Google Play</h2>
+            </div>
+          </button>
+        </nav>
+      </div>
+      <!-- Secondt part -->
+      <div
+        class="mt-14 text-sm text-white flex flex-col lg:flex-row justify-between gap-4 text-center lg:text-left"
+      >
+        <div class="font-light">
+          <p>@all rights reserved, Snoke-Ticket services limited.2024</p>
+        </div>
+        <div
+          class="flex gap-8 lg:gap-5 xl:gap-14 items-center justify-center lg:justify-normal"
+        >
+          <p>Terms & condition</p>
+          <p>Return & refund policy</p>
+          <p>Privacy policy</p>
+        </div>
+      </div>
+    </footer>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
