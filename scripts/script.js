@@ -151,11 +151,10 @@ document.addEventListener("click", (event) => {
   }
 });
 
-// Handle Nex Button to buy Ticket
+// Handle Next Button to buy Ticket
 function handleNextSubmit(event) {
   event.preventDefault();
   my_modal_5.showModal();
-  console.log("Successfull purchase");
 }
 
 // Enabling and Disabling Ticket buy as Next button
@@ -186,3 +185,16 @@ document.getElementById("couponBtn").addEventListener("click", (event) => {
     alert("This Coupon is not Valid...!");
   }
 });
+
+// Smooth transition
+
+function smoothTransition() {
+  document
+    .querySelector("#buyTicketSection")
+    .scrollIntoView({ behavior: "smooth" });
+}
+
+// Handle final Submit Button from modal to reset the form and page
+function resetAllField() {
+  location.reload();
+}
