@@ -40,7 +40,7 @@
         border: none;
         font-size: 20px;
         font-family: "Inter", sans-serif;
-        font-weight: 300;
+        font-weight: 500;
         padding: 12px 22px;
       }
     </style>
@@ -510,7 +510,7 @@
                       id="selectedSeatCount"
                       class="bg-primary-bg text-xl px-4 py-0 text-white rounded-3xl"
                     >
-                      2
+                      0
                     </h4>
                   </div>
 
@@ -519,39 +519,58 @@
                   <h4 class="">Price</h4>
                 </div>
                 <!-- Dynamic seat part -->
-                <div class="flex justify-between font-light text-lg py-3">
-                  <div class="flex items-center gap-1">
-                    <h4 id="selectedSeat">C2</h4>
-                  </div>
-                  <h4 id="seatClass" class="">Economy</h4>
-                  <h4 id="perSeatPrice" class="">550</h4>
-                </div>
+                <div id="seatUpdate"></div>
                 <!-- Dynamic Price Part -->
                 <div
-                  class="flex justify-between text-lg font-semibold border-t-2 border-gray-300 p-3"
+                  class="flex justify-between text-lg font-semibold border-t border-gray-300 p-3"
                 >
                   <div class="flex items-center gap-1">
                     <h4>Total Price</h4>
                   </div>
 
-                  <h4>BDT <span id="totalPrice">550</span></h4>
+                  <h4>BDT <span id="totalPrice">0</span></h4>
+                </div>
+                <!-- Discount Part -->
+                <div
+                  id="discountPart"
+                  class="hidden flex justify-between text-lg font-semibold p-3"
+                >
+                  <div class="flex items-center gap-1">
+                    <h4>Discount</h4>
+                  </div>
+
+                  <h4>- BDT <span id="discountPrice">0</span></h4>
                 </div>
                 <!-- Coupon Part -->
-                <label class="relative input flex items-center my-2 font-inter">
+                <label
+                  id="couponPart"
+                  class="relative input flex items-center my-2 font-inter"
+                >
                   <input
+                    id="inputCoupon"
                     type="text"
                     class="grow rounded-xl"
                     placeholder="Have any coupon?"
                   />
                   <button
+                    disabled
+                    id="couponBtn"
                     class="absolute btn right-2 xl:right-6 text-white bg-primary-bg text-lg font-medium py-1 h-auto border-none rounded-lg"
                   >
                     Apply
                   </button>
                 </label>
+                <!-- Grand Total price Part -->
+                <div class="flex justify-between text-lg font-semibold p-3">
+                  <div class="flex items-center gap-1">
+                    <h4>Grand Total</h4>
+                  </div>
+
+                  <h4>BDT <span id="grandTotal">0</span></h4>
+                </div>
               </div>
               <div>
-                <form class="font-inter">
+                <form class="font-inter" onsubmit="handleNextSubmit(event)">
                   <label class="form-control w-full my-3">
                     <div class="label text">
                       <span class="label-text font-semibold text-lg"
@@ -559,6 +578,7 @@
                       >
                     </div>
                     <input
+                      required
                       id="name"
                       type="text"
                       placeholder="Enter your name"
@@ -572,6 +592,7 @@
                       >
                     </div>
                     <input
+                      required
                       id="phoneNumber"
                       type="number"
                       placeholder="Enter your phone number"
@@ -592,6 +613,9 @@
                     />
                   </label>
                   <button
+                    type="submit"
+                    disabled
+                    id="btnToBuy"
                     class="btn w-full my-4 text-white bg-primary-bg text-xl font-bold py-3 h-auto border-none rounded-xl"
                   >
                     Next
@@ -656,6 +680,31 @@
         </div>
       </div>
     </footer>
+    //Modal part
+    <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+      <div
+        class="modal-box w-11/12 max-w-2xl flex justify-center items-center text-center flex-col gap-5 p-8"
+      >
+        <img src="./images/success.png" alt="" />
+        <h3 class="font-bold text-2xl text-primary-bg">SUCCESS</h3>
+        <p class="text-[#4A4A4A] text-xl font-medium">
+          Thank you for Booking Our Bus Seats. <br />
+          We are working hard to find the best service and deals for you.
+        </p>
+        <p class="text-[#4A4A4A] text-xl font-light">
+          Shortly you will find a confirmation in your email.
+        </p>
+        <div class="modal-action">
+          <form method="dialog">
+            <button
+              class="btn w-auto my-4 text-white bg-primary-bg text-xl font-bold px-16 py-3 h-auto border-none rounded-3xl"
+            >
+              Continue
+            </button>
+          </form>
+        </div>
+      </div>
+    </dialog>
     <script src="./scripts/script.js"></script>
   </body>
 </html>
