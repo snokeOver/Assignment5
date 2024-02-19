@@ -92,12 +92,12 @@ function removeBgColor(id) {
 }
 // Handle discount show part
 function shwoDiscount() {
-  setInnerText("grandTotal", grandTotalCost);
+  setInnerText("grandTotal", grandTotalCost.toFixed(2));
   removeClass("discountPart", "hidden");
   addClass("couponPart", "hidden");
   removeClass("successCoupon", "hidden");
   removeInputValue("inputCoupon", "");
-  setInnerText("discountPrice", discountedCost);
+  setInnerText("discountPrice", discountedCost.toFixed(2));
 }
 // Handle Ticket part
 function setInnerHtml() {
@@ -126,6 +126,7 @@ document.addEventListener("click", (event) => {
         selectedSeats.push(Id);
       } else {
         my_modal_3.showModal();
+        return;
       }
     } else {
       availableSeats.push(Id);
@@ -137,8 +138,8 @@ document.addEventListener("click", (event) => {
     }
     setInnerText("numberOfSeats", availableSeats.length);
     setInnerText("selectedSeatCount", maxSeat);
-    setInnerText("totalPrice", totalCost);
-    setInnerText("grandTotal", grandTotalCost);
+    setInnerText("totalPrice", totalCost.toFixed(2));
+    setInnerText("grandTotal", grandTotalCost.toFixed(2));
     setInnerHtml();
     eableDisableNextBtn();
     removeClass("couponPart", "hidden");
@@ -156,6 +157,7 @@ document.addEventListener("click", (event) => {
 // Handle Next Button to buy Ticket
 function handleNextSubmit(event) {
   event.preventDefault();
+  setInnerText("nameToShow", getInputValue("name"));
   my_modal_5.showModal();
 }
 
