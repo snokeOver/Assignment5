@@ -292,8 +292,10 @@
 
     <!-- Paribahan section -->
 
-    <section class="my-10 font-raleway mx-auto">
-      <div class="border pb-28 rounded-3xl border-t-primary-bg bg-[#F7F8F8]">
+    <section class="mt-10 font-raleway mx-auto">
+      <div
+        class="pb-28 rounded-t-3xl lg:rounded-t-[4rem] border border-t-primary-bg bg-[#F7F8F8]"
+      >
         <div class="container mx-auto">
           <div class="text-center p-3 md:py-6">
             <h1
@@ -571,6 +573,46 @@
                     Apply
                   </button>
                 </label>
+                <!-- Coupon Success Message -->
+                <div
+                  id="successCoupon"
+                  class="alert bg-primary-bg font-semibold text-xl text-gray-100 hidden"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="stroke-current shrink-0 h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                  <span>Coupon Applied Successfully!</span>
+                </div>
+                <!-- Bad Coupon Message -->
+                <div
+                  id="invalidCoupon"
+                  class="alert alert-warning font-semibold text-xl text-gray-50 hidden"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="stroke-current shrink-0 h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                    />
+                  </svg>
+                  <span>Warning: Invalid Coupon!</span>
+                </div>
                 <!-- Grand Total price Part -->
                 <div class="flex justify-between text-lg font-semibold p-3">
                   <div class="flex items-center gap-1">
@@ -691,7 +733,7 @@
         </div>
       </div>
     </footer>
-    <!-- Modal Part -->
+    <!-- Modal To show Ticket buy success -->
     <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
       <div
         class="modal-box w-11/12 max-w-2xl flex justify-center items-center text-center flex-col gap-5 p-8"
@@ -715,6 +757,34 @@
             </button>
           </form>
         </div>
+      </div>
+    </dialog>
+    <!-- Modal to show max 4 ticket can be bought -->
+    <dialog id="my_modal_3" class="modal">
+      <div
+        class="modal-box bg-yellow-500 font-semibold text-2xl text-gray-50 flex justify-center items-center text-center flex-col gap-5 p-8"
+      >
+        <form method="dialog">
+          <button
+            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          >
+            ✕
+          </button>
+        </form>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="stroke-current shrink-0 h-12 w-12"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+          />
+        </svg>
+        <span>Warning: You Can Buy Maximum 4 Tickets!</span>
       </div>
     </dialog>
     <script src="./scripts/script.js"></script>

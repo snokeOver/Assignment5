@@ -95,6 +95,7 @@ function shwoDiscount() {
   setInnerText("grandTotal", grandTotalCost);
   removeClass("discountPart", "hidden");
   addClass("couponPart", "hidden");
+  removeClass("successCoupon", "hidden");
   removeInputValue("inputCoupon", "");
   setInnerText("discountPrice", discountedCost);
 }
@@ -124,7 +125,7 @@ document.addEventListener("click", (event) => {
         addBgColor(Id);
         selectedSeats.push(Id);
       } else {
-        alert("You can buy maximum 4 seats...!");
+        my_modal_3.showModal();
       }
     } else {
       availableSeats.push(Id);
@@ -141,6 +142,7 @@ document.addEventListener("click", (event) => {
     setInnerHtml();
     eableDisableNextBtn();
     removeClass("couponPart", "hidden");
+    addClass("successCoupon", "hidden");
   }
   if (maxSeat === MX_PERMITTED_SEAT) {
     makeEnable("couponBtn");
@@ -182,11 +184,14 @@ document.getElementById("couponBtn").addEventListener("click", (event) => {
     grandTotalCost = grandTotalCost * (1 - COUPON_20.discount / 100);
     shwoDiscount();
   } else {
-    alert("This Coupon is not Valid...!");
+    removeClass("invalidCoupon", "hidden");
+    setTimeout(() => {
+      addClass("invalidCoupon", "hidden");
+    }, 3000);
   }
 });
 
-// Smooth transition
+// Smooth transition To Ticket Purchase Section
 
 function smoothTransition() {
   document
